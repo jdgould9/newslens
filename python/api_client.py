@@ -15,7 +15,7 @@ def call_news_api(args, key, use_mock=False):
 
     payload = {
         'language' : 'en',
-        'page_size' : '50',
+        'page_size' : '5',
         'apiKey' : key,
         'keywords' : getattr(args, 'keywords', None),
         'start_date' : getattr(args, 'start_date', None),
@@ -23,7 +23,7 @@ def call_news_api(args, key, use_mock=False):
         'country' : getattr(args, 'country', None),
         'type' : getattr(args, 'content_type', None),
         'category' : getattr(args, 'news_category', None),
-        'domain' : getattr(args, 'domain', None),
+        'domain' : getattr(args, 'domain_yes', None),
         'domain_not' : getattr(args, 'domain_not', None)
     }
     

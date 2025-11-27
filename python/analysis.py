@@ -1,4 +1,4 @@
-#sentiment_analyzer.py
+#analysis.py
 #Jack Gould
 #Performs sentiment analysis on a given dataframe of articles
 
@@ -8,7 +8,14 @@ import pandas as pd
 def news_json_to_df(news_json):
     news_articles_df = pd.DataFrame(columns=['id', 'title', 'description', 'url', 'author', 'published'])
     for index, article in enumerate(news_json):
-        news_articles_df.loc[index]=[article['id'], article['title'], article['description'], article['url'], article['author'], article['published']]
+        news_articles_df.loc[index] = [
+            article.get('id'),
+            article.get('title'),
+            article.get('description'),
+            article.get('url'),
+            article.get('author'),
+            article.get('published')
+        ]
     return news_articles_df
 
 def create_analysis_from_api_response(news):
